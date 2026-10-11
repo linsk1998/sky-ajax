@@ -1,0 +1,23 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit"
+	},
+	"editor.formatOnType": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.insertSpaces": false,
+	"editor.renderWhitespace": "all",
+	"editor.wordWrap": "on",
+	"javascript.format.semicolons": "insert",
+	"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+	"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+	"typescript.format.semicolons": "insert",
+	"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+	"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+	"typescript.preferences.preferTypeOnlyAutoImports": true,
+	"files.insertFinalNewline": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"javascript.preferences.importModuleSpecifier": "relative"
+}

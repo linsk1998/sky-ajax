@@ -1,0 +1,45 @@
+{
+	"name": "sky-ajax",
+	"version": "0.0.0",
+	"description": "Ajax toolkit with config inheritance, request/response interceptors",
+	"type": "module",
+	"main": "dist/sky-ajax.mjs",
+	"module": "dist/sky-ajax.mjs",
+	"types": "dist/sky-ajax.d.ts",
+	"scripts": {
+		"build": "rollup -c rollup.config.mjs",
+		"test": "vitest"
+	},
+	"author": "linsk1998",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/linsk1998/sky-ajax.git"
+	},
+	"bugs": {
+		"url": "https://github.com/linsk1998/sky-ajax/issues"
+	},
+	"homepage": "https://github.com/linsk1998/sky-ajax#readme",
+	"keywords": [
+		"ajax",
+		"xhr",
+		"interceptor",
+		"typescript"
+	],
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"@rollup/plugin-typescript": "^12.3.0",
+		"jsdom": "^25.0.0",
+		"rollup": "^4.64.2",
+		"tslib": "^2.8.1",
+		"typescript": "^6.0.3",
+		"vite": "^8.3.4",
+		"vitest": "^5.0.3"
+	},
+	"dependencies": {
+		"sky-qs": "^1.1.0"
+	}
+}
