@@ -83,7 +83,7 @@ type DataBodyMixin =
 
 export type AjaxOptions = AjaxOptionsCommon & QueryParamsMixin & DataBodyMixin;
 
-export interface ContextOptions extends Omit<Partial<AjaxOptionsCommon>, 'url'> {
+export interface AjaxContextOptions extends Omit<Partial<AjaxOptionsCommon>, 'url'> {
 	/** 基础路径。首层相对于 document.baseURI，以后每层相对于上层 base 路径覆盖 */
 	base?: string;
 	/** 公共参数对象，与下层合并，自动转为 query string */
@@ -135,7 +135,7 @@ export interface Ajax {
 	(options: AjaxOptions): Promise<any>;
 	get(url: string, options?: Omit<AjaxOptionsCommon, 'method' | 'url'>): Promise<any>;
 	post(url: string, data: Record<string, any>, options?: Omit<AjaxOptionsCommon, 'method' | 'url'>): Promise<any>;
-	create: (options: ContextOptions) => Ajax;
+	create: (options: AjaxContextOptions) => Ajax;
 }
 
 function defaultDataSerializer(data: Record<string, any>, requestType: 'form' | 'json'): XMLHttpRequestBodyInit {
@@ -191,9 +191,9 @@ function isFormData(value: any): value is FormData {
 	return toString.call(value) === "[object FormData]";
 }
 
-export function create(options: ContextOptions): Ajax {
+export function create(options: AjaxContextOptions): Ajax {
 	const { base, method, headers, params, requestType, paramsSerializer, dataSerializer, responseParser, interceptors } = options;
-	const context: ContextOptions = {
+	const context: AjaxContextOptions = {
 		...options,
 		base: base ? new URL(base, document.baseURI).href : document.baseURI.replace(/#.*$/, "").replace(/\/[^/]+$/, ""),
 		method: method || "GET",
@@ -205,7 +205,7 @@ export function create(options: ContextOptions): Ajax {
 		responseParser: responseParser || defaultResponseParser,
 		interceptors: interceptors || []
 	};
-	const _create = function(options: ContextOptions): Ajax {
+	const _create = function(options: AjaxContextOptions): Ajax {
 		const ajax = create({
 			...context,
 			...options,
